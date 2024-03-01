@@ -33,6 +33,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Inspire" id="Gnx-LX-RmM">
                         <barButtonItem key="rightBarButtonItem" title="Restore" id="hnP-xN-Cgu">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="restorePressed:" destination="VW3-dU-DGq" id="o1Z-b4-zcd"/>
                             </connections>
@@ -42,7 +43,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeS-H6-bII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="28"/>
+            <point key="canvasLocation" x="878.62595419847321" y="27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="brY-br-F82">
