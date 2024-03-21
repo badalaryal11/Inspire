@@ -93,9 +93,11 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
             if transaction.transactionState == .purchased {
                 // User payment sucessful
                 print("Transaction Sucessful")
+                SKPaymentQueue.default().finishTransaction(transaction)
             } else if transaction.transactionState == .failed{
                 //payment failed
                 print("Transaction Failed")
+                SKPaymentQueue.default().finishTransaction(transaction)
             }
         }
     }
