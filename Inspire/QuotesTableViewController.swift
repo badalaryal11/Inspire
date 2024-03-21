@@ -44,7 +44,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         self.navigationController?.navigationBar.backgroundColor = .systemGreen
         
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana", size: 17)]
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         
     }
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "595DB295-450B-40DD-A8EB-B2557E70DD20"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66287109-696E-43DD-996E-5105F1C21BF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Inspire/QuotesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "configureNavigation()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "66287109-696E-43DD-996E-5105F1C21BF0 - ef50850188c9f0a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Inspire.QuotesTableViewController.configureNavigation() -&gt; ()"
+                  moduleName = "Inspire"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/badalaryal/Desktop/Development/Inspire/Inspire/QuotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "455">
+               </Location>
+               <Location
+                  uuid = "66287109-696E-43DD-996E-5105F1C21BF0 - ef50850188c9f0a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Inspire.QuotesTableViewController.configureNavigation() -&gt; ()"
+                  moduleName = "Inspire"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/badalaryal/Desktop/Development/Inspire/Inspire/QuotesTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "758">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
