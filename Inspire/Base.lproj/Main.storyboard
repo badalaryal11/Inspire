@@ -33,7 +33,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Inspire" id="Gnx-LX-RmM">
                         <barButtonItem key="rightBarButtonItem" title="Restore" id="hnP-xN-Cgu">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="restorePressed:" destination="VW3-dU-DGq" id="o1Z-b4-zcd"/>
                             </connections>
@@ -53,6 +53,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Xa-ya-8V1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -64,6 +65,7 @@
             <point key="canvasLocation" x="-76" y="20"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

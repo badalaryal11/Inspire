@@ -35,8 +35,17 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureNavigation()
         SKPaymentQueue.default().add(self)
+    }
+    
+    func configureNavigation(){
+        self.navigationController?.navigationBar.barTintColor = .systemGreen
+        self.navigationController?.navigationBar.backgroundColor = .systemGreen
+        
+        let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana", size: 17)]
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        
     }
 
     // MARK: - Table view data source
