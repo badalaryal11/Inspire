@@ -105,14 +105,30 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
             if transaction.transactionState == .purchased {
                 // User payment sucessful
                 print("Transaction Sucessful")
+                showPremiumQuotes()
+                // End Transaction so we're not holding onto same transaction.
                 SKPaymentQueue.default().finishTransaction(transaction)
             } else if transaction.transactionState == .failed{
                 //payment failed
                 print("Transaction Failed")
+                // Accurate description of error
+                // use optional binding
+                if let error = transaction.error {
+                    let errorDescription = error.localizedDescription
+                    print("Transaction Failed due to error: \(errorDescription)")
+                }
+                // End Transaction so we're not holding onto same transaction.
                 SKPaymentQueue.default().finishTransaction(transaction)
             }
         }
     }
+    
+        func showPremiumQuotes(){
+            
+            quotesToShow.append(contentsOf: premiumQuotes)
+            tableView.reloadData()
+        
+        }
     
     
         @IBAction func restorePressed(_ sender: UIBarButtonItem) {
