@@ -36,7 +36,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigation()
-        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(self) // delgate by adding observer - self
     }
     
     func configureNavigation(){
@@ -73,7 +73,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
     }
     
 
-    // MARK: - Table view delegate methods
+    // MARK: - Table view delegate methods - detect touch
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == quotesToShow.count {
@@ -89,7 +89,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         // the queue of payment transactions to be processed by Appstore
         if SKPaymentQueue.canMakePayments(){
             // can make payment
-            let paymentRequest = SKMutablePayment()
+            let paymentRequest = SKMutablePayment() // new object created from skmutablepayment class
             paymentRequest.productIdentifier = productID
             SKPaymentQueue.default().add(paymentRequest)
         } else {
@@ -97,8 +97,10 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
             print("User Can't Make Payments")
         }
     }
+    // Detect when payment is sucessful by the help of skpaymenttransctionobserver protocol.
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        // check each of tranctions sucessful attempt
         for transaction in transactions {
             if transaction.transactionState == .purchased {
                 // User payment sucessful
