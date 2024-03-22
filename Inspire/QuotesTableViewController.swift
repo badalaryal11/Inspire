@@ -37,6 +37,9 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         super.viewDidLoad()
         configureNavigation()
         SKPaymentQueue.default().add(self) // delgate by adding observer - self
+        if isPurchased() {
+            showPremiumQuotes()
+        }
     }
     
     func configureNavigation(){
@@ -55,6 +58,12 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return quotesToShow.count + 1
+        
+        if isPurchased() {
+            return quotesToShow.count
+        } else {
+            return quotesToShow.count + 1 
+        }
     }
 
     
@@ -63,6 +72,8 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         if indexPath.row < quotesToShow.count {
             cell.textLabel?.text = quotesToShow[indexPath.row]
             cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.textColor = UIColor.black
+            cell.accessoryType = .none
         } else {
             cell.textLabel?.text = "Get More Quotes"
             cell.textLabel?.textColor = UIColor.white
@@ -106,6 +117,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
                 // User payment sucessful
                 print("Transaction Sucessful")
                 showPremiumQuotes()
+                UserDefaults.standard.set(true, forKey: productID)
                 // End Transaction so we're not holding onto same transaction.
                 SKPaymentQueue.default().finishTransaction(transaction)
             } else if transaction.transactionState == .failed{
@@ -130,6 +142,18 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         
         }
     
+    func isPurchased() -> Bool {
+        let purchasedStatus = UserDefaults.standard.bool(forKey: productID)
+        
+        if purchasedStatus {
+            print("Previously Purchased")
+            return true
+        } else {
+            print("Never Purchased")
+            return false
+        }
+        
+    }
     
         @IBAction func restorePressed(_ sender: UIBarButtonItem) {
         }
