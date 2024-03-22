@@ -40,11 +40,11 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
     }
     
     func configureNavigation(){
-        self.navigationController?.navigationBar.barTintColor = .systemGreen
-        self.navigationController?.navigationBar.backgroundColor = .systemGreen
+        self.navigationController?.navigationBar.barTintColor = .systemPurple
+        self.navigationController?.navigationBar.backgroundColor = .systemPurple
         
-        let attributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:UIFont(name: "Verdana", size: 17)]
-        self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
         
     }
 
@@ -65,7 +65,8 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
             cell.textLabel?.numberOfLines = 0
         } else {
             cell.textLabel?.text = "Get More Quotes"
-            cell.textLabel?.textColor = UIColor(named: "blue")
+            cell.textLabel?.textColor = UIColor.white
+            cell.backgroundColor = .systemGreen
             cell.accessoryType = .disclosureIndicator
         }
         return cell
