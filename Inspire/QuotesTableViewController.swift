@@ -32,7 +32,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         "Your true success in life begins only when you make the commitment to become excellent at what you do. — Brian Tracy",
         "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got to keep going. – Chantal Sutherland"
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigation()
@@ -50,11 +50,11 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         
     }
-
+    
     // MARK: - Table view data source
-
-   
-
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return quotesToShow.count + 1
@@ -62,10 +62,10 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         if isPurchased() {
             return quotesToShow.count
         } else {
-            return quotesToShow.count + 1 
+            return quotesToShow.count + 1
         }
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath)
@@ -83,7 +83,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         return cell
     }
     
-
+    
     // MARK: - Table view delegate methods - detect touch
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,7 +117,7 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
                 // User payment sucessful
                 print("Transaction Sucessful")
                 showPremiumQuotes()
-                UserDefaults.standard.set(true, forKey: productID)
+                
                 // End Transaction so we're not holding onto same transaction.
                 SKPaymentQueue.default().finishTransaction(transaction)
             } else if transaction.transactionState == .failed{
@@ -131,16 +131,26 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
                 }
                 // End Transaction so we're not holding onto same transaction.
                 SKPaymentQueue.default().finishTransaction(transaction)
+            } else if transaction.transactionState == .restored {
+                
+                showPremiumQuotes()
+                
+                print("Transaction restored")
+                
+                navigationItem.setRightBarButton(nil, animated: true)
+                
+                SKPaymentQueue.default().finishTransaction(transaction)
             }
         }
     }
     
-        func showPremiumQuotes(){
-            
-            quotesToShow.append(contentsOf: premiumQuotes)
-            tableView.reloadData()
+    func showPremiumQuotes(){
+        UserDefaults.standard.set(true, forKey: productID)
         
-        }
+        quotesToShow.append(contentsOf: premiumQuotes)
+        tableView.reloadData()
+        
+    }
     
     func isPurchased() -> Bool {
         let purchasedStatus = UserDefaults.standard.bool(forKey: productID)
@@ -155,10 +165,11 @@ class QuotesTableViewController: UITableViewController, SKPaymentTransactionObse
         
     }
     
-        @IBAction func restorePressed(_ sender: UIBarButtonItem) {
-        }
-        
-  
-
-
+    @IBAction func restorePressed(_ sender: UIBarButtonItem) {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    
+    
+    
 }
